@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyGithubUsers</string>
+    <string name="search">buscando</string>
+    <string name="search_hint">Encontrar usuario</string>
+
+    <string name="hello_world">Hola Mundo %1$s !, Te quedan %2$d fragmentos</string>
+    <string name="more">ver más >>></string>
+    <string name="language_settings">Idioma</string>
+    <string name="btn_list_seemore">ver</string>
+    <string name="btn_list_share">compartir</string>
+    <string name="loading">Cargando datos</string>
+    <string name="tab_text_1">Siguiendo</string>
+    <string name="tab_text_2">Seguidores/Seguidoras</string>
+    <string name="detail_txtFollowers">Seguidores/Seguidoras</string>
+    <string name="detail_txtFollowing" translatable="false">Siguiendo</string>
+    <string name="not_found">Datos no encontrados</string>
+    <string name="detail_company">empresa</string>
+</resources>

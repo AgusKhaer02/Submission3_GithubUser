@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MyGithubUsers</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Find Users</string>
+
+    <string name="hello_world">Hello World %1$s !, You have %2$d Fragments remaining</string>
+    <string name="more">Read more >>></string>
+    <string name="language_settings">Language</string>
+    <string name="btn_list_seemore">See</string>
+    <string name="btn_list_share">Share</string>
+    <string name="loading">Loading Data</string>
+    <string name="tab_text_1">Following</string>
+    <string name="tab_text_2">Followers</string>
+    <string name="detail_txtFollowers">Followers</string>
+    <string name="detail_txtFollowing" translatable="false">Following</string>
+    <string name="not_found">Data not found</string>
+    <string name="detail_company">Company</string>
+
+</resources>

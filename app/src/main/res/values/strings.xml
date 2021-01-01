@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">MyGithubUsers</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Carikan Usersnya</string>
+
+    <!--
+    %1$s = String
+    %2$d = Double
+
+-->
+    <string name="hello_world">Hallo Dunia %1$s !, Kamu memiliki %2$d Fragment tersisa</string>
+    <string name="more">Lihat selengkapnya >>></string>
+    <string name="language_settings">Bahasa</string>
+    <string name="btn_list_seemore">Lihat</string>
+    <string name="btn_list_share">Bagikan</string>
+
+    <string name="tab_text_1">Mengikuti</string>
+    <string name="tab_text_2">Pengikut</string>
+    <string name="tab_text_3" translatable="false">Repositories</string>
+    <string name="detail_txtFollowing">Mengikuti</string>
+    <string name="detail_txtRepository" translatable="false">Repositories</string>
+    <string name="github_avatar" translatable="false">Github Avatar</string>
+    <string name="detail_txtUsername" translatable="false">Username</string>
+    <string name="detail_txtExampleEmail" translatable="false">example@email.com</string>
+    <string name="detail_txtExampleLocation" translatable="false">Yogyakarta</string>
+    <string name="detail_followersUsername" translatable="false">Username</string>
+    <string name="detail_company">Perusahaan</string>
+    <string name="detail_txtFollowingUsername" translatable="false">Username</string>
+    <string name="username" translatable="false">Agus Kurniadin Khaer</string>
+    <string name="loading">Memuat Data</string>
+    <string name="detail_txtFollowers">Pengikut</string>
+    <string name="loading_percent">25%</string>
+
+    <string name="not_found">Data tidak tersedia</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--    <plurals name="numberOfSongsAvailable">-->
+    <!--        <item quantity="one">%d song found.</item>-->
+    <!--        <item quantity="other">%d songs found.</item>-->
+    <!--    </plurals>-->
+
+</resources>

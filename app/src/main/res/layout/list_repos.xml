@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/img_repo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_repos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_repoName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Repository"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_createdAt"
+        app:layout_constraintStart_toEndOf="@+id/img_repo"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_fork"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="70"
+        android:layout_marginEnd="3dp"
+        android:textColor="#179C00"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/txt_watched"
+        app:layout_constraintTop_toTopOf="parent"
+        app:drawableStartCompat="@drawable/ic_fork" />
+
+    <TextView
+        android:id="@+id/txt_watched"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_watched"
+        android:gravity="center_vertical"
+        android:layout_marginEnd="3dp"
+        android:text="350"
+        android:textColor="#0042EA"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/txt_language"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="css"
+        android:textColor="#6200EA"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:drawableStartCompat="@drawable/ic_code" />
+
+    <TextView
+        android:id="@+id/txt_createdAt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dibuat : 12 Agustus 2019"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_repo" />
+
+    <TextView
+        android:id="@+id/txt_updatedAt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Diperbarui : 8 Desember 2019"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_createdAt" />
+
+    <TextView
+        android:id="@+id/txt_pushedAt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Di push : 3 Januari 2020"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_updatedAt" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
