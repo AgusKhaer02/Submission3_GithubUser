@@ -33,13 +33,17 @@ class FollowersFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         fragmentFollowers = FragmentFollowersBinding.inflate(inflater, container,false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         // jika arguments tidak null maka ambil data username dan panggil fungsi showFollower
         arguments?.let { it ->
             val username = it.getString(USERNAME_FOLLOWER, "null")
 
             getFollowers(username)
         }
-        return binding.root
     }
 
     private fun getFollowers(username : String) {

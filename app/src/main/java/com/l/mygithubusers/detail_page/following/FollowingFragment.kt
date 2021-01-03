@@ -33,13 +33,6 @@ class FollowingFragment : Fragment() {
 
         // Inflate the layout for this fragment
         fragmentFollowing = FragmentFollowingBinding.inflate(inflater, container,false)
-
-//        // jika arguments tidak null maka ambil data username dan panggil fungsi showFollower
-//        arguments?.let { it ->
-//            val username = it.getString(USERNAME_FOLLOWING, "null")
-//
-//            getFollowing(username)
-//        }
         return binding.root
     }
 

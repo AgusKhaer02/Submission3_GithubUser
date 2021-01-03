@@ -41,11 +41,16 @@ class ReposFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         fragmentRepos = FragmentReposBinding.inflate(inflater, container,false)
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         arguments?.let {
             Log.d("usernameRepos",it.getString(USERNAME_REPOS, "null"))
             getRepos(it.getString(USERNAME_REPOS, "null"))
         }
-        return binding.root
     }
 
     private fun getRepos(user : String){
