@@ -68,7 +68,6 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
             override fun onQueryTextChange(newText: String): Boolean {
-                findUsers(newText)
                 return false
             }
 
@@ -104,7 +103,7 @@ class MainActivity : AppCompatActivity() {
             .build()
             .getAsJSONArray(object : JSONArrayRequestListener {
                 override fun onResponse(response: JSONArray?) {
-                    showLoading(false)
+
                     userArrayList.clear()
 
                     if (response?.length() == 0){
@@ -130,6 +129,8 @@ class MainActivity : AppCompatActivity() {
                         binding.rvUsersList.setHasFixedSize(true)
                         binding.rvUsersList.layoutManager = layoutManager
                         binding.rvUsersList.adapter = userAdapter
+
+                        showLoading(false)
                         userAdapter.setOnItemClickCallback(object : UserAdapter.OnItemClickCallback{
                             override fun onItemClicked(data: UserDataModule) {
                                 val intent = Intent(this@MainActivity, DetailUser::class.java)
@@ -138,6 +139,7 @@ class MainActivity : AppCompatActivity() {
                                 startActivity(intent)
                             }
                         })
+
                     }
 
                 }
@@ -162,7 +164,7 @@ class MainActivity : AppCompatActivity() {
             .build()
             .getAsJSONObject(object : JSONObjectRequestListener {
                 override fun onResponse(response: JSONObject?) {
-                    showLoading(false)
+
                     userArrayList.clear()
 
                     if (response?.length() == 0){
@@ -188,6 +190,8 @@ class MainActivity : AppCompatActivity() {
                         binding.rvUsersList.setHasFixedSize(true)
                         binding.rvUsersList.layoutManager = layoutManager
                         binding.rvUsersList.adapter = userAdapter
+
+                        showLoading(false)
 
                         userAdapter.setOnItemClickCallback(object : UserAdapter.OnItemClickCallback{
                             override fun onItemClicked(data: UserDataModule) {
@@ -222,8 +226,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun showLoading(state: Boolean) {
         if (state) {
+            binding.rvUsersList.visibility = View.GONE
             binding.progressBar.visibility = View.VISIBLE
         } else {
+            binding.rvUsersList.visibility = View.VISIBLE
             binding.progressBar.visibility = View.GONE
         }
     }

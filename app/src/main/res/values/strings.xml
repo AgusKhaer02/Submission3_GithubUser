@@ -29,11 +29,15 @@
     <string name="username" translatable="false">Agus Kurniadin Khaer</string>
     <string name="loading">Memuat Data</string>
     <string name="detail_txtFollowers">Pengikut</string>
-    <string name="loading_percent">25%</string>
+    <string name="loading_percent" translatable="false">25%</string>
 
-    <string name="not_found">Data tidak tersedia</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="not_found">Tidak diketahui</string>
+
+<!--    WORDS -->
+    <string name="word_email" translatable="false">Email</string>
+    <string name="word_company">Perusahaan</string>
+    <string name="word_location">Lokasi</string>
+    <string name="detail_txtFullname" translatable="false">fullname</string>
 
     <!--    <plurals name="numberOfSongsAvailable">-->
     <!--        <item quantity="one">%d song found.</item>-->

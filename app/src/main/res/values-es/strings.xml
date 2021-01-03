@@ -14,6 +14,9 @@
     <string name="tab_text_2">Seguidores/Seguidoras</string>
     <string name="detail_txtFollowers">Seguidores/Seguidoras</string>
     <string name="detail_txtFollowing" translatable="false">Siguiendo</string>
-    <string name="not_found">Datos no encontrados</string>
+    <string name="not_found">no encontrados</string>
+
+    <string name="word_company">Empressa</string>
     <string name="detail_company">empresa</string>
+    <string name="word_location">ubicación</string>
 </resources>

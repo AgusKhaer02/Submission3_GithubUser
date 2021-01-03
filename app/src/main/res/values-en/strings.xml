@@ -15,7 +15,9 @@
     <string name="tab_text_2">Followers</string>
     <string name="detail_txtFollowers">Followers</string>
     <string name="detail_txtFollowing" translatable="false">Following</string>
-    <string name="not_found">Data not found</string>
+    <string name="not_found">not found</string>
+    <string name="word_company">Company</string>
+    <string name="word_location">Location</string>
     <string name="detail_company">Company</string>
 
 </resources>

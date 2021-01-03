@@ -14,6 +14,7 @@ import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONArrayRequestListener
 import com.l.mygithubusers.databinding.FragmentFollowersBinding
 import org.json.JSONArray
+import kotlin.concurrent.thread
 
 class FollowersFragment : Fragment() {
 
@@ -32,20 +33,14 @@ class FollowersFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         fragmentFollowers = FragmentFollowersBinding.inflate(inflater, container,false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         // jika arguments tidak null maka ambil data username dan panggil fungsi showFollower
         arguments?.let { it ->
             val username = it.getString(USERNAME_FOLLOWER, "null")
 
             getFollowers(username)
         }
+        return binding.root
     }
-
 
     private fun getFollowers(username : String) {
         showLoading(true)
@@ -54,7 +49,7 @@ class FollowersFragment : Fragment() {
             .build()
             .getAsJSONArray(object : JSONArrayRequestListener {
                 override fun onResponse(response: JSONArray?) {
-                    showLoading(false)
+
                     followersArrayList.clear()
 
                     response.let {
@@ -63,7 +58,7 @@ class FollowersFragment : Fragment() {
 
                     val resLength = response!!.length()
                     if (resLength == 0){
-
+                        showLoading(false)
                         Toast.makeText(context, "Data kosong", Toast.LENGTH_SHORT).show()
                     }else{
                         for (i in 0 until resLength){
@@ -78,14 +73,13 @@ class FollowersFragment : Fragment() {
                                 )
                             )
                         }
-
+                        followersAdapter = FollowersAdapter(followersArrayList)
+                        followersAdapter.notifyDataSetChanged()
                         val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
                         binding.rvFollowers.setHasFixedSize(true)
                         binding.rvFollowers.layoutManager = layoutManager
-
-                        followersAdapter = FollowersAdapter(followersArrayList)
-                        followersAdapter.notifyDataSetChanged()
                         binding.rvFollowers.adapter = followersAdapter
+                        showLoading(false)
                     }
 
                 }
@@ -104,8 +98,10 @@ class FollowersFragment : Fragment() {
 
     private fun showLoading(state: Boolean) {
         if (state) {
+            binding.rvFollowers.visibility = View.GONE
             binding.progressBar.visibility = View.VISIBLE
         } else {
+            binding.rvFollowers.visibility = View.VISIBLE
             binding.progressBar.visibility = View.GONE
         }
     }

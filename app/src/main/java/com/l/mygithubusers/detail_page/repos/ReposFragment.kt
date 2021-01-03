@@ -40,19 +40,12 @@ class ReposFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
-
         fragmentRepos = FragmentReposBinding.inflate(inflater, container,false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         arguments?.let {
             Log.d("usernameRepos",it.getString(USERNAME_REPOS, "null"))
             getRepos(it.getString(USERNAME_REPOS, "null"))
         }
+        return binding.root
     }
 
     private fun getRepos(user : String){
@@ -62,7 +55,7 @@ class ReposFragment : Fragment() {
             .build()
             .getAsJSONArray(object : JSONArrayRequestListener {
                 override fun onResponse(response: JSONArray?) {
-                    showLoading(false)
+
                     reposArrayList.clear()
 
                     if (response?.length() == 0){
@@ -93,6 +86,9 @@ class ReposFragment : Fragment() {
                         binding.rvRepos.setHasFixedSize(true)
                         binding.rvRepos.layoutManager = layoutManager
                         binding.rvRepos.adapter = reposAdapter
+
+
+                        showLoading(false)
                     }
 
                 }
@@ -118,8 +114,10 @@ class ReposFragment : Fragment() {
 
     private fun showLoading(state: Boolean) {
         if (state) {
+            binding.rvRepos.visibility = View.GONE
             binding.progressBar.visibility = View.VISIBLE
         } else {
+            binding.rvRepos.visibility = View.VISIBLE
             binding.progressBar.visibility = View.GONE
         }
     }

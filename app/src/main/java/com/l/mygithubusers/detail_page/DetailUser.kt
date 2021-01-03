@@ -50,7 +50,7 @@ class DetailUser : AppCompatActivity() {
 //      Tab Layout
         binding.tabs.setupWithViewPager(binding.viewPager)
 
-        binding.username.text = username
+        binding.username.text = "($username)"
         Glide.with(this)
             .load(avatar)
             .apply(RequestOptions().override(100, 100))
@@ -64,19 +64,38 @@ class DetailUser : AppCompatActivity() {
             .build()
             .getAsJSONObject(object : JSONObjectRequestListener {
 
-                override fun onResponse(response: JSONObject?) {
+                override fun onResponse(response: JSONObject) {
+
+                    val fullname =
+                        if (response.getString("name") == "null"){
+                            applicationContext.resources.getString(R.string.word_company) + " " + applicationContext.resources.getString(R.string.not_found)
+                        }else{
+                            response.getString("name")
+                        }
+                    val company =
+                        if (response.getString("company") == "null"){
+                            applicationContext.resources.getString(R.string.word_company) + " " + applicationContext.resources.getString(R.string.not_found)
+                        }else{
+                            response.getString("company")
+                        }
+                    val location =
+                        if (response.getString("location") == "null"){
+                            applicationContext.resources.getString(R.string.word_location) + " " + applicationContext.resources.getString(R.string.not_found)
+                        }else{
+                            response.getString("location")
+                        }
+                    val email =
+                        if(response.getString("email") == "null"){
+                            applicationContext.resources.getString(R.string.word_email) + " " + applicationContext.resources.getString(R.string.not_found)
+                        }else{
+                            response.getString("email")
+                        }
+
+                    binding.fullname.text = fullname.toString()
+                    binding.email.text = email.toString()
+                    binding.location.text = location.toString()
+                    binding.company.text = company.toString()
                     showLoading(false)
-                    val company = response!!.getString("company") ?: applicationContext.resources.getString(
-                        R.string.not_found)
-                    val location = response.getString("location") ?: applicationContext.resources.getString(
-                        R.string.not_found)
-                    val email = response.getString("email") ?: applicationContext.resources.getString(
-                        R.string.not_found)
-
-                    binding.email.text = email
-                    binding.location.text = location
-                    binding.company.text = company
-
                 }
 
                 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
@@ -104,8 +123,10 @@ class DetailUser : AppCompatActivity() {
 
     private fun showLoading(state: Boolean) {
         if (state) {
+            binding.details.visibility = View.GONE
             binding.progressBar.visibility = View.VISIBLE
         } else {
+            binding.details.visibility = View.VISIBLE
             binding.progressBar.visibility = View.GONE
         }
     }

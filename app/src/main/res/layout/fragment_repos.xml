@@ -11,24 +11,25 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:visibility="gone"/>
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
         android:background="#EFEFEF"
-        android:textColor="@color/black"
-        android:gravity="center_horizontal"
         android:fontFamily="sans-serif-thin"
-        android:text="@string/detail_txtRepository"/>
+        android:gravity="center_horizontal"
+        android:text="@string/detail_txtRepository"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@id/title"
         android:id="@+id/rv_repos"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/title"
+        android:visibility="gone"
         tools:itemCount="5"
         tools:listitem="@layout/list_followers" />
 </RelativeLayout>

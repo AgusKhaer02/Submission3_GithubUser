@@ -30,14 +30,21 @@ class FollowingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         // Inflate the layout for this fragment
         fragmentFollowing = FragmentFollowingBinding.inflate(inflater, container,false)
+
+//        // jika arguments tidak null maka ambil data username dan panggil fungsi showFollower
+//        arguments?.let { it ->
+//            val username = it.getString(USERNAME_FOLLOWING, "null")
+//
+//            getFollowing(username)
+//        }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         // jika arguments tidak null maka ambil data username dan panggil fungsi showFollower
         arguments?.let { it ->
             val username = it.getString(USERNAME_FOLLOWING, "null")
@@ -46,6 +53,7 @@ class FollowingFragment : Fragment() {
         }
     }
 
+
     private fun getFollowing(username : String) {
         showLoading(true)
         AndroidNetworking.get("https://api.github.com/users/$username/following")
@@ -53,7 +61,7 @@ class FollowingFragment : Fragment() {
             .build()
             .getAsJSONArray(object : JSONArrayRequestListener {
                 override fun onResponse(response: JSONArray?) {
-                    showLoading(false)
+
                     followingArrayList.clear()
 
                     response.let {
@@ -64,6 +72,7 @@ class FollowingFragment : Fragment() {
                     if (resLength == 0){
 
                         Toast.makeText(context, "Data kosong", Toast.LENGTH_SHORT).show()
+                        showLoading(false)
                     }else{
                         for (i in 0 until resLength){
 
@@ -78,13 +87,14 @@ class FollowingFragment : Fragment() {
                             )
                         }
 
+                        followingAdapter = FollowingAdapter(followingArrayList)
+                        followingAdapter.notifyDataSetChanged()
                         val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
                         binding.rvFollowing.setHasFixedSize(true)
                         binding.rvFollowing.layoutManager = layoutManager
-
-                        followingAdapter = FollowingAdapter(followingArrayList)
-                        followingAdapter.notifyDataSetChanged()
                         binding.rvFollowing.adapter = followingAdapter
+
+                        showLoading(false)
                     }
 
                 }
@@ -103,8 +113,10 @@ class FollowingFragment : Fragment() {
 
     private fun showLoading(state: Boolean) {
         if (state) {
+            binding.rvFollowing.visibility = View.GONE
             binding.progressBar.visibility = View.VISIBLE
         } else {
+            binding.rvFollowing.visibility = View.VISIBLE
             binding.progressBar.visibility = View.GONE
         }
     }
