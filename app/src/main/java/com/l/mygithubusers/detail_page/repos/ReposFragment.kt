@@ -45,13 +45,18 @@ class ReposFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onResume() {
+        super.onResume()
+
         arguments?.let {
             Log.d("usernameRepos",it.getString(USERNAME_REPOS, "null"))
             getRepos(it.getString(USERNAME_REPOS, "null"))
         }
     }
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//    }
 
     private fun getRepos(user : String){
         showLoading(true)

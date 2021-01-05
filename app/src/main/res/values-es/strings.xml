@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MyGithubUsers</string>
+    <string name="app_name">MyGithubUsers Sub 2</string>
     <string name="search">buscando</string>
     <string name="search_hint">Encontrar usuario</string>
 

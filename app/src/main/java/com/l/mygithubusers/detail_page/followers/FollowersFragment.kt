@@ -36,8 +36,9 @@ class FollowersFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onResume() {
+        super.onResume()
+
         // jika arguments tidak null maka ambil data username dan panggil fungsi showFollower
         arguments?.let { it ->
             val username = it.getString(USERNAME_FOLLOWER, "null")
@@ -45,6 +46,11 @@ class FollowersFragment : Fragment() {
             getFollowers(username)
         }
     }
+//
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//    }
 
     private fun getFollowers(username : String) {
         showLoading(true)
